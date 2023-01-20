@@ -54,25 +54,34 @@ public class Main {
 
         Collections.sort(arr);
 
-        System.out.println(arr);
-
-        /* vystup
+    }
+    public static String outprint(ArrayList<Student> arr){
+        int znamkaRound = 0;
+        int citac = 1;
+        boolean equals = false;
         String s = "";
-        int znamka2= 0;
-        int pocetZnamek = 1;
-
-        for (int i = 1; i < arr.size(); i++){
-            while(arr.get(i-1).jmeno == arr.get(i).jmeno){
-                s = arr.get(i-1).jmeno;
-                znamka2 += arr.get(i-1).znamka;
-                pocetZnamek ++;
+        for (int i = 0; i < arr.size() - 1; i++) {
+            while((arr.get(i).jmeno).compareTo(arr.get(i + 1).jmeno) == 0){
+                znamkaRound += arr.get(i).znamka + arr.get(i+1).znamka;
+                citac ++;
+                equals = true;
+                i++;
             }
-            znamka /= pocetZnamek;
-            znamka = Math.round(znamka);
-            pocetZnamek = 1;
-            System.out.println(s);
-            System.out.println(znamka2);
-        }*/
+            if (equals) {
+                znamkaRound /= citac;
+                znamkaRound = Math.round(znamkaRound);
+                s += arr.get(i).jmeno + " " + Integer.toString(znamkaRound);
+                s += "";
+                znamkaRound = 0;
+                citac = 1;
+                equals = false;
+            }
+            else {
+                s += arr.get(i).jmeno + " " + Integer.toString(arr.get(i).znamka);
+                s += "";
+            }
 
+        }
+        return s;
     }
 }

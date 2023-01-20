@@ -15,10 +15,7 @@ public class Student implements Serializable, Comparable<Student> {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "jmeno='" + jmeno + '\'' +
-                ", znamka=" + znamka +
-                '}';
+        return "";
     }
 
     @Override
